@@ -13,7 +13,16 @@ pipeline {
     }
     stage('Browser Tests') {
       steps {
-        echo 'Hello Browser Tests'
+        parallel(
+          "Browser Tests": {
+            echo 'Hello Browser Tests'
+            
+          },
+          "Run": {
+            echo 'run'
+            
+          }
+        )
       }
     }
     stage('Dev') {
